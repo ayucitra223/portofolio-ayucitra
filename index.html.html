@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Ayu Citradevi Rahmawati</title>
+    <!-- Google Fonts: Poppins agar terlihat modern dan bulat -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Palette Warna Soft: Lavender & Peach */
+            --primary-color: #A29BFE; /* Soft Lavender - Lucu & Modern */
+            --primary-dark: #8e84f5; /* Lavender lebih gelap untuk hover */
+            --secondary-color: #FDFBF7; /* Creamy White - Background bersih */
+            --accent-color: #FD79A8; /* Soft Peach/Pink - Aksen Cantik */
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(162, 155, 254, 0.15); /* Shadow ungu tipis */
+            --radius: 20px; /* Sudut lebih bulat agar terlihat lebih lucu */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 10px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 90vh;
+            padding-top: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; /* Efek gradasi pada teks */
+        }
+
+        .hero-text h2 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-text p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+            font-size: 1.05rem;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(162, 155, 254, 0.3);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(162, 155, 254, 0.4);
+        }
+
+        .hero-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img-placeholder {
+            width: 350px;
+            height: 350px;
+            background-color: #fff;
+            border-radius: 50%; /* Lingkaran penuh */
+            overflow: hidden;
+            border: 8px solid var(--white);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            position: relative;
+        }
+        
+        /* Hiasan lingkaran di belakang foto */
+        .img-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 105%;
+            height: 105%;
+            border-radius: 50%;
+            border: 2px dashed var(--primary-color);
+            z-index: -1;
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- ABOUT ME --- */
+        .about-card {
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .about-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* --- SKILLS --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-item {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-item i {
+            font-size: 2.5rem;
+            color: var(--accent-color); /* Ikon warna peach */
+            margin-bottom: 15px;
+        }
+
+        .skill-item h3 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* --- PORTFOLIO --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-img {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .portfolio-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* --- PKL EXPERIENCE --- */
+        .pkl-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-left: 6px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hiasan bulat di pojok kartu PKL */
+        .pkl-card::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .pkl-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pkl-header h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+        }
+
+        .pkl-date {
+            background: #F0F0FF;
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pkl-role {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pkl-card ul {
+            position: relative;
+            z-index: 1;
+            padding-left: 20px;
+        }
+        
+        .pkl-card li {
+            list-style-type: circle;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            min-width: 250px;
+            transition: 0.3s;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info i {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            background: #F0F0FF;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .heart {
+            color: var(--accent-color);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                gap: 40px;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            .img-placeholder {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .about-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">AYU CITRA<span style="color:var(--accent-color)">.PORTOFOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#portfolio">Karya</a></li>
+                <li><a href="#pkl">PKL</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero container">
+        <div class="hero-text">
+            <h2>Halo, Saya</h2>
+            <h1>Ayu Citradevi Rahmawati</h1>
+            <h2>Teknik Komputer & Jaringan</h2>
+            <p>Siswi SMKN 1 Tanjunganom yang bersemangat dalam dunia teknologi, instalasi jaringan, dan bisnis makanan .</p>            <!-- Ganti href dengan link file CV kamu -->
+            <a href="cv-ayu.pdf.pdf" class="btn-cta"><i class="fas fa-download"></i> Download CV</a>
+        </div>
+        <div class="hero-img">
+            <div class="img-placeholder">
+                <!-- Ganti src dengan foto profil kamu -->
+                <img src="img/foto-ayu.jpeg" alt="Foto Ayu Citradevi">
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="about" class="container">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-card">
+            <p>Halo! Saya adalah siswi jurusan Teknik Komputer dan Jaringan (TKJ) di <strong>SMKN 1 Tanjunganom</strong>.</p>
+            <p>Saya memiliki ketertarikan besar pada dunia IT, mulai dari merakit komputer hingga mempelajari dasar-dasar jaringan. Saya adalah pribadi yang <strong>disiplin, teliti, dan mudah beradaptasi</strong>. Saya selalu bersemangat untuk belajar teknologi baru dan siap berkontribusi di dunia kerja.</p>
+        </div>
+    </section>
+
+    <!-- KEAHLIAN / SKILLS -->
+    <section id="skills" class="container">
+        <h2 class="section-title">Keahlian Saya</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-network-wired"></i>
+                <h3>Instalasi Jaringan</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-windows"></i>
+                <h3>Windows Server</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-wifi"></i>
+                <h3>Mikrotik Dasar</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-laptop-code"></i>
+                <h3>HTML & CSS</h3>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-file-word"></i>
+                <h3>Microsoft Office</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="container">
+        <h2 class="section-title">Portfolio / Karya</h2>
+        <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="portfolio-card">
+                <div class="portfolio-img">
+                    <img src="img/foto-splicing.jpg" alt="Praktek Jaringan">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Splicing Kabel Fiber Optic</h3>
+                    <p>Menyambungkan Kabel Fiber Optic.</p>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="portfolio-card">
+                <div class="portfolio-img">
+                    <img src="img/foto-router.jpg" alt="Rakit PC">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Memperbaiki Kerusakan Router</h3>
+                    <p>Setting roter, memperbaki router dan melihat apakah masih berfungsi dengan baik, dan cek internet pada router.</p>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="portfolio-card">
+                <div class="portfolio-img">
+                    <img src="img/foto-ulasan.png" alt="Mikrotik">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Membuat Website Aplikasi Laundry</h3>
+                    <p>Membuat Aplikasi Laundry dengan beberapa fitur yang dapat digunakan, seperti fitur pemesanan,alamat tempat,nomor telepon,email,harga per kilo gram, dan fitur"lainnya .</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENGALAMAN PKL -->
+    <section id="pkl" class="container">
+        <h2 class="section-title">Pengalaman PKL</h2>
+        <div class="pkl-card">
+            <div class="pkl-header">
+                <h3>[NAFISA NET]</h3>
+                <span class="pkl-date">JUNI-DESEMBER 2026</span>
+            </div>
+            <div class="pkl-role">Posisi: Pelayanan Client</div>
+            <p>
+                <ul>
+                    <li>Membantu maintenance komputer kantor dan printer.</li>
+                    <li>Melakukan perbaikan router.</li>
+                    <li>Membantu pengecekan jaringan LAN .</li>
+                    <li>Belajar tentang Splicin Kabel Fiber Optic.</li>
+                </ul>
+            </p>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>ayucitradevi@email.com</p>
+            </div>
+            <div class="contact-info">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>+62 812 3456 7890</p>
+            </div>
+            <div class="contact-info">
+                <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p>@ayucitradevi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>Dibuat dengan <i class="fas fa-heart heart"></i> oleh Ayu Citradevi Rahmawati</p>
+            <p style="margin-top:5px; font-size: 0.8rem;">SMKN 1 Tanjunganom &copy; 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
